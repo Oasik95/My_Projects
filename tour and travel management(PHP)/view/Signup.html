@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style3.css">
+    </head>
+	<body>
+        <div class="s2">
+		<h2>SignUp</h2>
+       <form action="../controller/regCheak.php" method="POST" onsubmit="return validate()">
+        
+		
+               
+                <table> 
+                        <td><b>Name</b> </td>
+                        </tr>
+                        <tr>
+                        <td><input type="text" id ="name" name="name" placeholder="Enter your name" value="" > <label style ="color:red;" id="nameerrore" ></label></td>
+                    </tr>
+                    <tr>
+                        <td><b>Gender</b></td>
+                    </tr>   
+                    <tr>    
+                    <td>
+                    
+                    <label for="101">  <input type="radio" name="gender" value="Male" id="101"> Male</label>
+                    <label for="102">  <input type="radio" name="gender" value="Female" id="102"> Female</label>
+                    <label for="103">  <input type="radio" name="gender" value="Others" id="103"> Others</label>
+                    <label style ="color:red;" id="gendere" ></label>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td><b>DOB</b></td>
+                        </tr>
+                        <tr>
+                        <td><input type="date" id = "dob" name="dob" placeholder="Date of Birth" value=""><label style ="color:red;" id="dobe" ></label></td>
+                    </tr>
+                    <tr>
+                        <td><b>Email</b></td>
+                </tr>
+                <tr>
+                        <td><input type="email" id = "email" name="email" placeholder="Enter your Email" value=""><label style ="color:red;" id="emaile" ></label></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><b>Password</b></td>
+                        </tr>
+                        <tr>
+                        <td><input type="password" id ="pass" name="password" placeholder="Enter password" value=""> <label style ="color:red;" id="passe" ></label></td>
+                    </tr>
+                    <tr>
+                        <td><b>Confirm Password</b></td>
+                        </tr>
+                        <tr>
+                        <td><input type="password"id ="cpass" name="cpassword" placeholder="Confirm Password" value=""><input type="checkbox" placeholder="" name="" onclick="myFunction()" value="" ><label style ="color:red;" id="cpasse" ></label></td>
+                        <td><label style ="color:red;" id="same" ></label></td>
+                    </tr>
+                    <tr>
+                        <td>Address</td></tr>
+                        <tr>
+                        <td >
+                        <input type="text" id ="address" name="address" placeholder="Drop your Address" value="" textarea style="height: 50px;width: 160px;" ><label style ="color:red;" id="addresse" ></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><h3>Payment method</h3></td></tr>
+                        <tr>
+                            <td><b>Card number</b></td>
+                            </tr>
+                            <tr>
+                            <td><input type="text" id="card" name="cardnumber" placeholder="Enter card number" value=""><label style ="color:red;" id="carde" ></label></td>
+                        </tr>
+                        <tr>
+                            <td><b>Country</b></td>
+                            </tr>
+                            <tr>
+                            <td><input type="text" id ="coun" name="country" placeholder="country name" value=""><label style ="color:red;" id="coune" ></label></td>
+                        </tr>
+                        
+                    <tr>
+                        <td><input type="submit" name="submit" value=" sign Up"></td> 
+                        <td> <a href="../view/login.php"> Sign In </a></td>
+                    </tr>
+                 
+                </table>
+                <script >
+                    function myFunction()
+                    {
+                        var cpass=document.getElementById('cpass')
+                        if(cpass.type=='password')
+                        {
+                            cpass.type='text';
+                            
+                        }
+                        else
+                        {
+                            cpass.type='password';
+
+                        }
+                    }
+                </script>
+           
+        </div>
+        </form>
+    
+        <script>
+            function validate(){
+
+	
+	
+var name=document.getElementById('name').value;
+var genders=document.getElementsByName('gender');
+var dob=document.getElementById('dob').value;
+var email=document.getElementById('email').value;
+var pass=document.getElementById('pass').value;
+var cpass=document.getElementById('cpass').value;
+var address=document.getElementById('address').value;
+var card=document.getElementById('card').value;
+var coun=document.getElementById('coun').value;
+
+
+
+
+
+ if(name == ""){
+    document.getElementById('nameerrore').innerHTML = "! name can't left empty";
+    return false;
+}else if(genders[0].checked !== true && genders[1].checked !== true && genders[2].checked !== true)
+{
+    document.getElementById('gendere').innerHTML = "! gender can't left empty";
+    return false;
+}else if(dob == ""){
+    document.getElementById('dobe').innerHTML = "! BOD can't left empty";
+    return false;
+}else if(email == ""){
+    document.getElementById('emaile').innerHTML = "! email can't left empty";
+    return false;
+}else if(pass == ""){
+    document.getElementById('passe').innerHTML = "! password can't left empty";
+    return false;
+}else if(cpass == ""){
+    document.getElementById('cpasse').innerHTML = "! invalid cnfirm password ";
+    return false;
+}else if(pass !== cpass){
+             document.getElementById('same').innerHTML = "! password should be same ";
+             return false;
+             }
+else if(address == "" ){
+    document.getElementById('addresse').innerHTML = "! address can't left empty ";
+    return false;
+}else if(card == "" ){
+    document.getElementById('carde').innerHTML = "! card numver can't left empty ";
+    return false;
+}else if(coun == "" ){
+    document.getElementById('coune').innerHTML = "! country can't left empty ";
+    return false;
+}
+}
+        </script>
+</body>
+</html>
